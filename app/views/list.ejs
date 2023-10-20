@@ -1,0 +1,27 @@
+<%- include('partials/header') %>
+<main class="page-content">
+  <h1 class="page-title"><%= title %></h1>
+  <div class="page-main">
+    <section class="segment">
+      <div class="segment-title segment-title--action">
+        <h2>Tous les produits</h2>
+        <label class="small-hidden">
+          Produits par ligne 
+          <select>
+            <option value="2">2</option>
+            <option selected value="4">4</option>
+          </select>
+        </label>
+      </div>
+      <div class="segment-cards segment-cards--4">
+        <% for (const product of products) { %>
+          <%- include('partials/card', { product: product }) %>
+          <%# on peut passer une donnée à une vue enfant via un objet en 2ème argument de include %>
+        <% } %>
+      </div>
+    </section>
+    <%- include('partials/localisation') %>
+  </div>
+  <%- include('partials/origin') %>
+</main>
+<%- include('partials/footer') %>

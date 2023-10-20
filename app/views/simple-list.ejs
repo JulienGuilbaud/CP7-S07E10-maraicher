@@ -1,0 +1,17 @@
+<%- include('partials/header') %>
+<main class="page-content">
+  <h1 class="page-title"><%= title %></h1>
+  <div class="page-main">
+    <section class="segment">
+      <h2 class="segment-title"><%= segmentTitle %></h2>
+      <ul class="segment-btns">
+        <% for (const category of categories) { %>
+          <li><a href="/rayon/<%= category.slug %>" class="btn"><%= category.title %></a></li>
+        <% } %>
+      </ul>
+    </section>
+    <%- include('partials/localisation') %>
+  </div>
+  <%- include('partials/origin') %>
+</main>
+<%- include('partials/footer') %>

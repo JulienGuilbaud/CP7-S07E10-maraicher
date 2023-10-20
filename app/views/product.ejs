@@ -1,0 +1,36 @@
+<%- include('partials/header') %>
+  <main class="page-content">
+    <h1 class="page-title"><%= product.title %></h1>
+    <div class="page-main">
+      <section class="segment">
+        <article class="detail">
+          <img class="detail-img" src="/img/products/<%= product.slug %>.jpg" alt="">
+          <div class="detail-content">
+            <h2><%= product.title %> : détails</h2>
+            <h3>Catégories</h3>
+            <p><a class="btn" href="/rayon/<%= product.category %>"><%= product.category %></a></p>
+            <h3>Description</h3>
+            <p><%= product.description %></p>
+            <h3>Note</h3>
+            <p>
+              <span class="detail-grade" aria-hidden="true">
+                <% for (let i = 0; i < product.grade; i++) { %>
+                  &#9733; 
+                <% } %>
+                <% for (let i = 0; i < 5 - product.grade; i++) { %>
+                  &#9734;
+                <% } %>
+              </span>
+              <%= product.grade %>/5
+            </p>
+            <footer class="detail-action">
+              <p>Retour <a class="btn" href="/">Accueil</a> ou rayon <a class="btn" href="/rayon/<%= product.category %>"><%= product.category %></a></p>
+            </footer>
+          </div>
+        </article>
+      </section>
+      <%- include('partials/localisation') %>
+    </div>
+    <%- include('partials/origin') %>
+  </main>
+<%- include('partials/footer') %>
